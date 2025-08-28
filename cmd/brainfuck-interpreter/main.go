@@ -1,6 +1,8 @@
 package main
 
 import (
+	"brainfuck-interpreter/interpreter"
+	"brainfuck-interpreter/parser"
 	"fmt"
 	"os"
 )
@@ -11,19 +13,19 @@ func main() {
 		return
 	}
 
-	fileContent, err := os.ReadFile(os.Args[1])
+	bytes, err := os.ReadFile(os.Args[1])
 	if err != nil {
 		fmt.Println("Error reading file:", err)
 		return
 	}
 
-	instructions, err := ParseSourceBytes(fileContent)
+	instructions, err := parser.ParseSourceBytes(bytes)
 	if err != nil {
 		fmt.Println("Error parsing file:", err)
 		return
 	}
 
-	vm := VM{}
+	vm := interpreter.VM{}
 	vm.Execute(instructions)
 
 }

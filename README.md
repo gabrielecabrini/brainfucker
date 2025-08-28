@@ -12,8 +12,8 @@ Clone the repository and build the executable:
 
 ```bash
 git clone https://github.com/gabrielecabrini/brainfuck-interpreter
-cd brainfuck-interpreter
-go build
+cd brainfucker
+go build -o brainfuck-interpreter cmd/brainfuck-interpreter/main.go
 ```
 
 This will generate an executable called `brainfuck-interpreter`.
