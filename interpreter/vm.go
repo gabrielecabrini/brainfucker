@@ -1,7 +1,7 @@
 package interpreter
 
 import (
-	"brainfuck-interpreter/parser"
+	"brainfucker/parser"
 	"fmt"
 )
 

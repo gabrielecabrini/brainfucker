@@ -1,8 +1,8 @@
 package main
 
 import (
-	"brainfuck-interpreter/interpreter"
-	"brainfuck-interpreter/parser"
+	"brainfucker/interpreter"
+	"brainfucker/parser"
 	"fmt"
 	"os"
 )

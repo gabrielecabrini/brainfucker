@@ -1,6 +1,6 @@
-# Brainfuck Interpreter
+# Brainfucker
 
-[Brainfuck](https://wikipedia.org/wiki/Brainfuck) interpreter written in Go. It reads a Brainfuck source file and executes it using a 30,000-cell memory tape.
+This project contains an interpreter and an LLVM IR transpiler for [Brainfuck](https://wikipedia.org/wiki/Brainfuck).
 
 ## Requirements
 
@@ -8,36 +8,36 @@
 
 ## Building
 
-Clone the repository and build the executable:
+Clone the repository and build the executables:
 
 ```bash
-git clone https://github.com/gabrielecabrini/brainfuck-interpreter
+git clone https://github.com/gabrielecabrini/brainfucker
 cd brainfucker
 go build -o brainfuck-interpreter cmd/brainfuck-interpreter/main.go
+go build -o brainfuck-transpiler cmd/brainfuck-transpiler/main.go
 ```
 
-This will generate an executable called `brainfuck-interpreter`.
+This will generate two executables: `brainfuck-interpreter` and `brainfuck-transpiler`.
 
 ## Usage
 
-Run the interpreter with a Brainfuck source file as the first argument:
+Run the interpreter with a Brainfuck source file:
 
 ```bash
 ./brainfuck-interpreter path/to/program.b
 ```
 
-Example:
+Run the transpiler to generate LLVM IR:
 
 ```bash
-./brainfuck-interpreter examples/hello_world.b
+./brainfuck-transpiler path/to/program.b
 ```
 
 ## Examples
 
-The `examples` folder contains sample Brainfuck programs, such as:
-
-You can run them using:
+The `examples` folder contains sample Brainfuck programs:
 
 ```bash
-./brainfuck-interpreter examples/fibonacci.b
+./brainfuck-interpreter examples/hello_world.b
+./brainfuck-transpiler examples/fibonacci.b
 ```

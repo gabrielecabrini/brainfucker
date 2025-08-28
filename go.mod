@@ -1,3 +1,3 @@
-module brainfuck-interpreter
+module brainfucker
 
 go 1.20

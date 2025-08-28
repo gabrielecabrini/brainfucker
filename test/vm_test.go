@@ -1,8 +1,8 @@
 package test
 
 import (
-	"brainfuck-interpreter/interpreter"
-	"brainfuck-interpreter/parser"
+	"brainfucker/interpreter"
+	"brainfucker/parser"
 	"os"
 	"testing"
 )
