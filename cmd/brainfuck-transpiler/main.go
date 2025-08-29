@@ -1,8 +1,8 @@
 package main
 
 import (
-	"brainfucker/parser"
-	"brainfucker/transpiler"
+	"brainfucker/internal/transpiler"
+	"brainfucker/pkg/parser"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -27,6 +27,7 @@ func main() {
 		fmt.Println("Error parsing file:", err)
 		return
 	}
+	instructions = parser.Optimize(instructions)
 
 	llvm := transpiler.LLVMGenerator{}
 	llvmIr := llvm.Generate(instructions)

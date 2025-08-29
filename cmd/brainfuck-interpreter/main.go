@@ -1,8 +1,8 @@
 package main
 
 import (
-	"brainfucker/interpreter"
-	"brainfucker/parser"
+	"brainfucker/internal/interpreter"
+	"brainfucker/pkg/parser"
 	"fmt"
 	"os"
 )
@@ -24,6 +24,7 @@ func main() {
 		fmt.Println("Error parsing file:", err)
 		return
 	}
+	instructions = parser.Optimize(instructions)
 
 	vm := interpreter.VM{}
 	vm.Execute(instructions)

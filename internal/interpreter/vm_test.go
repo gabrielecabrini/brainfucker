@@ -1,8 +1,7 @@
-package test
+package interpreter
 
 import (
-	"brainfucker/interpreter"
-	"brainfucker/parser"
+	"brainfucker/pkg/parser"
 	"os"
 	"testing"
 )
@@ -17,8 +16,9 @@ func BenchmarkVM(b *testing.B) {
 	if err != nil {
 		b.Fatal(err)
 	}
+	instrs = parser.Optimize(instrs)
 
-	vm := interpreter.VM{}
+	vm := VM{}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		vm.Execute(instrs)

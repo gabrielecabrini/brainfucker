@@ -1,7 +1,7 @@
 package transpiler
 
 import (
-	"brainfucker/parser"
+	"brainfucker/pkg/parser"
 	"fmt"
 	"strings"
 )

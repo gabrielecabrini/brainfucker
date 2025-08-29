@@ -48,12 +48,7 @@ func ParseSourceBytes(src []byte) ([]Instruction, error) {
 		}
 	}
 
-	root, err := stack.Root()
-	if err != nil {
-		return nil, err
-	}
-
-	return Optimize(root), nil
+	return stack.Root()
 }
 
 func Optimize(instrs []Instruction) []Instruction {
