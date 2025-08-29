@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -43,14 +44,11 @@ func main() {
 			llvm := transpiler.LLVMGenerator{}
 			llvmIr := llvm.Generate(instructions)
 
-			// change extension
-			outputPath := filepath.Base(os.Args[1])
-			outputPath = filepath.Join(filepath.Dir(inputPath),
-				filepath.Base(inputPath[:len(inputPath)-len(filepath.Ext(inputPath))]+".ll"))
+			base := strings.TrimSuffix(filepath.Base(inputPath), filepath.Ext(inputPath))
+			outputPath := filepath.Join(filepath.Dir(inputPath), base+".ll")
 
-			err = os.WriteFile(outputPath, []byte(llvmIr), 0644)
-			if err != nil {
-				return err
+			if err := os.WriteFile(outputPath, []byte(llvmIr), 0o644); err != nil {
+				return fmt.Errorf("failed to write LLVM IR: %w", err)
 			}
 
 			fmt.Println("LLVM IR saved to", outputPath)
