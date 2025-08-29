@@ -1,4 +1,8 @@
 # Brainfucker
+[![GitHub release](https://img.shields.io/github/v/release/gabrielecabrini/brainfucker)](https://github.com/gabrielecabrini/brainfucker/releases)
+![CI](https://github.com/gabrielecabrini/brainfucker/actions/workflows/ci.yml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/gabrielecabrini/brainfucker)](https://goreportcard.com/report/github.com/gabrielecabrini/brainfucker)
+[![License](https://img.shields.io/github/license/gabrielecabrini/brainfucker)](./LICENSE.md)
 
 This project contains an interpreter and an LLVM IR transpiler for [Brainfuck](https://wikipedia.org/wiki/Brainfuck).
 
