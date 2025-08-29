@@ -1,5 +1,7 @@
 package parser
 
+import "os"
+
 type Instruction interface{}
 
 type IncrementPtr struct {
@@ -18,6 +20,19 @@ type Output struct{}
 type Input struct{}
 type Loop struct {
 	Body []Instruction
+}
+
+func ParseAndOptimizeFile(filename string) ([]Instruction, error) {
+	bytes, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	instructions, err := ParseSourceBytes(bytes)
+	if err != nil {
+		return nil, err
+	}
+	instructions = Optimize(instructions)
+	return instructions, nil
 }
 
 func ParseSourceBytes(src []byte) ([]Instruction, error) {
